@@ -31,6 +31,16 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
 /* --- Global --- */
 html { scroll-behavior: smooth; }
 
+/* --- Keyboard Focus Visibility --- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
 * {
     margin: 0; padding: 0;
     box-sizing: border-box;
@@ -98,6 +108,8 @@ nav a::after {
 }
 nav a:hover { color: var(--primary-color); }
 nav a:hover::after { width: 100%; }
+nav a.active { color: var(--primary-color); }
+nav a.active::after { width: 100%; }
 
 .menu-btn {
     display: none; background: transparent; border: none; color: var(--text-main);
@@ -377,6 +389,13 @@ body:not(.light-mode) .social-icons a:hover { color: #000; }
 @media (max-width: 991px) {
     header { flex-direction: row; padding: 15px 5%; }
     .menu-btn { display: block; }
+
+    .nav-overlay {
+        position: fixed; inset: 0; background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(3px); opacity: 0; visibility: hidden;
+        transition: all 0.3s ease; z-index: 998;
+    }
+    .nav-overlay.active { opacity: 1; visibility: visible; }
     
     /* Hamburger Menu Style (Bulletproof opacity & transform) */
     nav { 

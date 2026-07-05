@@ -86,14 +86,11 @@ const themeToggleBtn = document.getElementById('theme-toggle');
 const body = document.body;
 const icon = themeToggleBtn.querySelector('i');
 
-const currentTheme = localStorage.getItem('theme');
-if (currentTheme === 'light') {
-    body.classList.add('light-mode');
+// Sync icon with the theme already applied by the early inline script (prevents FOUC)
+if (body.classList.contains('light-mode')) {
     icon.classList.replace('fa-sun', 'fa-moon');
 } else {
-    body.classList.remove('light-mode');
     icon.classList.replace('fa-moon', 'fa-sun');
-    localStorage.setItem('theme', 'dark');
 }
 
 themeToggleBtn.addEventListener('click', () => {
@@ -111,19 +108,43 @@ themeToggleBtn.addEventListener('click', () => {
 const menuBtn = document.getElementById('menu-btn');
 const navbar = document.getElementById('navbar');
 const menuIcon = menuBtn.querySelector('i');
+const navOverlay = document.getElementById('navOverlay');
+
+function closeMenu() {
+    navbar.classList.remove('active');
+    navOverlay.classList.remove('active');
+    menuIcon.classList.replace('fa-times', 'fa-bars');
+}
 
 menuBtn.addEventListener('click', () => {
-    navbar.classList.toggle('active');
-    if (navbar.classList.contains('active')) {
+    const isOpen = navbar.classList.toggle('active');
+    navOverlay.classList.toggle('active', isOpen);
+    if (isOpen) {
         menuIcon.classList.replace('fa-bars', 'fa-times');
     } else {
         menuIcon.classList.replace('fa-times', 'fa-bars');
     }
 });
 
+navOverlay.addEventListener('click', closeMenu);
+
 document.querySelectorAll('#navbar a').forEach(link => {
-    link.addEventListener('click', () => {
-        navbar.classList.remove('active');
-        menuIcon.classList.replace('fa-times', 'fa-bars');
-    });
+    link.addEventListener('click', closeMenu);
 });
+
+// 7. Scrollspy - Highlight active nav link based on scroll position
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('#navbar a');
+
+const scrollSpyObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            navLinks.forEach(link => {
+                link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+            });
+        }
+    });
+}, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+
+sections.forEach(section => scrollSpyObserver.observe(section));

@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hossam Sherif | Backend Developer & Software Engineer</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://unpkg.com">
+
     <meta name="description" content="Hossam Sherif — Back-End Developer and two-time ECPC Finalist specializing in C#, ASP.NET Core, SQL Server, and RESTful API development with Clean Architecture principles.">
     <meta name="keywords" content="Hossam Sherif, Backend Developer, ASP.NET Core, C# Developer, .NET Developer, Egypt, ECPC, Clean Architecture, REST API">
     <meta name="author" content="Hossam Sherif">
@@ -30,9 +35,49 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Hossam Sherif",
+        "url": "https://hosam-sherif.github.io/Portofolio/",
+        "image": "https://hosam-sherif.github.io/Portofolio/Img/Profile.jpeg",
+        "jobTitle": "Backend Developer & Software Engineer",
+        "email": "mailto:hosamsherif12@gmail.com",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Qena",
+            "addressCountry": "EG"
+        },
+        "sameAs": [
+            "https://github.com/Hosam-Sherif",
+            "https://www.linkedin.com/in/hosam-sherif-b32530269"
+        ],
+        "knowsAbout": ["C#", "ASP.NET Core", "SQL Server", "REST APIs", "Clean Architecture", "Entity Framework Core"]
+    }
+    </script>
+
+    <!-- 
+      Privacy-friendly analytics (Plausible) — no cookies, no consent banner needed.
+      1. Sign up free at https://plausible.io (or self-host) and add your domain.
+      2. Replace "hosam-sherif.github.io" below with your actual domain if different.
+      3. Uncomment the script tag to activate.
+    -->
+    <!-- <script defer data-domain="hosam-sherif.github.io" src="https://plausible.io/js/script.js"></script> -->
 </head>
 
 <body>
+
+    <script>
+        // Apply theme immediately (before paint) to avoid a flash of the wrong theme.
+        (function () {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+            const useLight = savedTheme ? savedTheme === 'light' : prefersLight;
+            if (useLight) document.body.classList.add('light-mode');
+        })();
+    </script>
 
     <button id="scrollTopBtn" class="scroll-top" title="Go to top" aria-label="Scroll back to top"><i class="fas fa-arrow-up"></i></button>
 
@@ -61,6 +106,8 @@
         </div>
     </header>
 
+    <div id="navOverlay" class="nav-overlay"></div>
+
     <section class="hero" id="home">
         <div class="aurora-bg">
             <div class="aurora-blob aurora-blob-1"></div>
@@ -83,7 +130,7 @@
             </div>
             <div class="hero-socials" data-aos="fade-up" data-aos-delay="300">
                 <a href="https://github.com/Hosam-Sherif" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/hosam-sherif-b32530269" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.linkedin.com/in/hossam-sherif-b32530269/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile"><i class="fab fa-linkedin-in"></i></a>
                 <a href="mailto:hosamsherif12@gmail.com" aria-label="Send email"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
@@ -471,7 +518,7 @@
                 <h3>Connect With Me</h3>
                 <div class="social-icons">
                     <a href="https://github.com/Hosam-Sherif" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/hosam-sherif-b32530269" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.linkedin.com/in/hossam-sherif-b32530269/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile"><i class="fab fa-linkedin-in"></i></a>
                     <a href="mailto:hosamsherif12@gmail.com" aria-label="Send email"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>

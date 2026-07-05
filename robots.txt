@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hosam-sherif.github.io/Portofolio/sitemap.xml
