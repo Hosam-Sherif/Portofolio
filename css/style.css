@@ -72,6 +72,7 @@ img { max-width: 100%; height: auto; display: block; }
     box-shadow: 0 10px 30px rgba(0, 195, 255, 0.4); display: flex; align-items: center; gap: 10px;
 }
 #toast.show { bottom: 40px; }
+#toast.toast-error { background: linear-gradient(135deg, #ff4d4d, #d90429); box-shadow: 0 10px 30px rgba(217, 4, 41, 0.4); }
 
 /* --- Navbar --- */
 header {
